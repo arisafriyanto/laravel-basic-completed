@@ -1,0 +1,26 @@
+body {
+    background-color: tomato;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.navbar {
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar li a {
+    padding: 10px;
+    display: inline-block;
+}
