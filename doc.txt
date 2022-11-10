@@ -1,0 +1,45 @@
+    This is component
+    
+    artisan make:component AppLayout == components/app-layout.blade.php
+    
+    @component('components.alert')
+        @slot('title')
+            Header Component with <strong>Arr</strong>
+        @endslot
+
+        Ini adalah children
+
+        @slot('footer')
+            Footer
+        @endslot
+    @endcomponent
+
+    ===
+
+        Anonymous Component
+
+    <x-alert>
+        <x-slot name="title">
+            Header Component with <strong>Arr</strong>
+        </x-slot>
+
+        Ini adalah children
+
+        <x-slot name="footer">
+            Footer
+        </x-slot>
+    </x-alert>
+
+    ===
+
+    @component("components.alert")
+        @slot("title")
+            Header Component with <strong>Arr</strong>
+        @endslot
+
+        Ini adalah children
+
+        @slot('footer')
+            Footer
+        @endslot
+    @endcomponent

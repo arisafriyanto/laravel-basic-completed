@@ -1,5 +1,5 @@
 body {
-    background-color: tomato;
+    background-color: black;
     color: #fff;
     font-family: sans-serif;
     padding: 10px;
@@ -23,4 +23,18 @@ a:hover {
 .navbar li a {
     padding: 10px;
     display: inline-block;
+}
+
+.alert{
+    background-color: indigo;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.alert-header{
+    background-color: blue;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
 }
