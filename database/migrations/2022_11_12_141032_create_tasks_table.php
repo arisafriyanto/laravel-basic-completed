@@ -16,6 +16,7 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();   // bigIntener - Auto Incrment - Primary Key
             $table->string("list", 191);
+            $table->boolean("mark")->default(false);
             $table->timestamps();   // created_at & updated_at
         });
     }
