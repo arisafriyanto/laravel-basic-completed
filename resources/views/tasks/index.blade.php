@@ -1,27 +1,8 @@
 <x-app-layout>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-
-                <div class="card">
-                    <div class="card-header">Create New Task</div>
-                    <div class="card-body">
-                        <form action="/tasks" method="post" class="row">
-                            @csrf
-
-                            <div class="col-md-11">
-                                <input type="text" name="list" class="form-control"
-                                    placeholder="The name of the task" autofocus>
-                            </div>
-
-                            <div class="col-md-1">
-
-                                <button class="btn btn-primary" type="submit">Add</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
+            <div class="col-md-6">
+                @include('tasks._create')
             </div>
         </div>
 
@@ -32,7 +13,7 @@
                     <div>
                         <a class="btn btn-primary" href="/tasks/{{ $task->id }}/edit">Edit</a>
 
-                        <form action="/tasks/{{ $task->id }}" method="post" style="display: inline;">
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="post" style="display: inline;">
                             @csrf
                             @method('delete')
 

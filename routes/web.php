@@ -1,18 +1,25 @@
 <?php
 
-use App\Http\Controllers\{HomeController, ContactController, ProfileInformationController, TaskController};
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\{HomeController, ContactController, LoginController, ProfileInformationController, RegistrationController, TaskController, UserController};
 
 
 Route::get("/", HomeController::class);
 
-Route::get("/contact", [ContactController::class, "create"]);
-Route::post("/contact", [ContactController::class, "store"]);
 
-Route::get("profile/{identifier}", ProfileInformationController::class);
+Route::get("users", [UserController::class, "index"])->name("users.index");
+Route::get("users/{user:username}", [UserController::class, "show"])->name("users.show");
 
-Route::get("tasks", [TaskController::class, "index"]);
-Route::post("tasks", [TaskController::class, "store"]);
-Route::get("tasks/{id}/edit", [TaskController::class, "edit"]);
-Route::put("tasks/{id}", [TaskController::class, "update"]);
-Route::delete("tasks/{id}", [TaskController::class, "destroy"]);
+Route::middleware('auth')->group(function () {
+    Route::resource("tasks", TaskController::class);
+    Route::post('logout', LogoutController::class)->name('logout');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('register', [RegistrationController::class, 'create'])->name('register');
+    Route::post('register', [RegistrationController::class, 'store'])->name('register');
+
+    Route::get('login', [LoginController::class, 'create'])->name('login');
+    Route::post('login', [LoginController::class, 'store']); //! valid jika ingin panggil name route di form nya
+});

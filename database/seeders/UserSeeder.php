@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,8 @@ class UserSeeder extends Seeder
             [
                 "name" => "Aris Afriyanto",
                 "email" => "aris@gmail.com",
-                "password" => bcrypt("afriyan"),
+                "username" => "arisaff",
+                "password" => bcrypt("Aris1933"),
                 "email_verified_at" => Carbon::now(),
                 "created_at" => now(),
                 "updated_at" => now(),
@@ -27,7 +29,8 @@ class UserSeeder extends Seeder
             [
                 "name" => "Wafiq Dwi Ana Putri",
                 "email" => "wafiq@gmail.com",
-                "password" => bcrypt("wafiq"),
+                "username" => "wafiqs",
+                "password" => bcrypt("Wafiq1933"),
                 "email_verified_at" => Carbon::now(),
                 "created_at" => now(),
                 "updated_at" => now(),
@@ -35,5 +38,7 @@ class UserSeeder extends Seeder
         ])->each(function ($user) {
             DB::table("users")->insert($user);
         });
+
+        User::factory(10)->create();
     }
 }
