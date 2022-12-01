@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg fixed-top bg-info navbar-info">
     <div class="container">
         <a class="navbar-brand" href="#">Laravel 8</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
